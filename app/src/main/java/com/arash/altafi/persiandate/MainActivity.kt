@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.arash.altafi.persiandate.sample0.SampleActivity0
 import com.arash.altafi.persiandate.sample1.SampleActivity1
 import com.arash.altafi.persiandate.sample2.SampleActivity2
 import com.arash.altafi.persiandate.sample3.SampleActivity3
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        btn_sample_0.setOnClickListener {
+            startActivity(Intent(this , SampleActivity0::class.java))
+        }
         btn_sample_1.setOnClickListener {
             startActivity(Intent(this , SampleActivity1::class.java))
         }

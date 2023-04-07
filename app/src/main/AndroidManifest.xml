@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PersianDate">
         <activity
+            android:name=".sample0.SampleActivity0"
+            android:exported="false" />
+        <activity
             android:name=".sample3.SampleActivity3"
             android:exported="false" />
         <activity

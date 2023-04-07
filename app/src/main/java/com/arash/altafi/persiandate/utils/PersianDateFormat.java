@@ -1,4 +1,4 @@
-package com.arash.altafi.persiandate.sample1.utils;
+package com.arash.altafi.persiandate.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -4,11 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.arash.altafi.persiandate.R
 import kotlinx.android.synthetic.main.activity_sample2.*
-import android.app.TimePickerDialog
-import android.app.TimePickerDialog.OnTimeSetListener
 import android.widget.Toast
-import android.app.DatePickerDialog
-import android.app.DatePickerDialog.OnDateSetListener
 import com.xdev.arch.persiancalendar.datepicker.CalendarConstraints
 import com.xdev.arch.persiancalendar.datepicker.DateValidatorPointForward
 import com.xdev.arch.persiancalendar.datepicker.Month
@@ -29,7 +25,11 @@ class SampleActivity2 : AppCompatActivity() {
         calendar.setPersian(1395, Month.FARVARDIN, 1)
         val start = calendar.timeInMillis
 
-        calendar.setPersian(PersianCalendar.getToday().year, PersianCalendar.getToday().month, PersianCalendar.getToday().day)
+        calendar.setPersian(
+            PersianCalendar.getToday().year,
+            PersianCalendar.getToday().month,
+            PersianCalendar.getToday().day
+        )
         val end = calendar.timeInMillis
 
         val openAt = PersianCalendar.getToday().timeInMillis
@@ -50,8 +50,8 @@ class SampleActivity2 : AppCompatActivity() {
         rangePicker.addOnPositiveButtonClickListener {
             val first = PersianCalendar(it?.first!!)
             val second = PersianCalendar(it.second!!)
-            Toast.makeText(this , "first: $first" , Toast.LENGTH_SHORT).show()
-            Toast.makeText(this , "second: $second" , Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "first: $first", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "second: $second", Toast.LENGTH_SHORT).show()
         }
 
         btn_date_range.setOnClickListener {

@@ -36,7 +36,7 @@ class SampleActivity1 : AppCompatActivity() {
 
         init()
 
-        val persianDate : PersianDate = PersianDate()
+        val persianDate: PersianDate = PersianDate()
         Log.i("test123321", "shyear => ${persianDate.shYear}")
         Log.i("test123321", "shMonth => ${persianDate.shMonth}")
         Log.i("test123321", "shDay =>  ${persianDate.shDay}")
@@ -57,7 +57,11 @@ class SampleActivity1 : AppCompatActivity() {
     }
 
     private fun adapter() {
-        val adapter: ArrayAdapter<String> = object : ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, displayFormat) {
+        val adapter: ArrayAdapter<String> = object : ArrayAdapter<String>(
+            this,
+            android.R.layout.simple_spinner_dropdown_item,
+            displayFormat
+        ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 if (position == 0) {
                     txt_date.setTextColor(Color.parseColor("#c2c2c2"))
@@ -67,7 +71,11 @@ class SampleActivity1 : AppCompatActivity() {
                 return txt_date
             }
 
-            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View? {
+            override fun getDropDownView(
+                position: Int,
+                convertView: View?,
+                parent: ViewGroup?
+            ): View? {
                 return super.getDropDownView(position, convertView, parent)
             }
 
@@ -76,7 +84,12 @@ class SampleActivity1 : AppCompatActivity() {
         spn_format.adapter = adapter
         spn_format.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
                 if (position != 0) {
                     pattern = displayFormat[position]
                     changeTime()
@@ -92,11 +105,11 @@ class SampleActivity1 : AppCompatActivity() {
     private fun changeTime() {
         Handler(mainLooper).postDelayed({
             txt_date.text = number2persian(PersianDateFormat(pattern).format(PersianDate()))
-        },0)
+        }, 0)
     }
 
     private fun number2persian(text: String): String {
-        var text : String = text
+        var text: String = text
         text = text.replace("0".toRegex(), "۰")
         text = text.replace("1".toRegex(), "۱")
         text = text.replace("2".toRegex(), "۲")
